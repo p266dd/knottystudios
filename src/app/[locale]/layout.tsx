@@ -1,45 +1,54 @@
-import {NextIntlClientProvider, hasLocale} from 'next-intl';
-import {getTranslations} from 'next-intl/server';
-import {notFound} from 'next/navigation';
-import {routing} from '@/i18n/routing';
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+
+import Navigation from "@/components/navigation";
 
 import { Outfit } from "next/font/google";
 import "../globals.css";
 
 const outfitSans = Outfit({
-  variable: "--font-outfit-sans",
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
-export async function generateMetadata({params}: {params: Promise<{locale: string}>;}) {
-  const {locale} = await params;
-  const t = await getTranslations({locale, namespace: 'HomePage'});
- 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "HomePage" });
+
   return {
-    title: t('title'),
-    description: t('description'),
+    title: t("title"),
+    description: t("description"),
   };
 }
 
 export default async function RootLocaleLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{locale: string}>;
+  params: Promise<{ locale: string }>;
 }) {
   // Ensure that the incoming `locale` is valid
-  const {locale} = await params;
+  const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className="h-full">
       <body
-        className={`${outfitSans.variable} antialiased`}
+        className={`${outfitSans.variable} h-full bg-black text-white antialiased`}
       >
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <Navigation />
+          <main>{children}</main>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
