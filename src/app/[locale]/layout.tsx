@@ -40,9 +40,7 @@ export default async function RootLocaleLayout({
 
   return (
     <html lang={locale}>
-      <body
-        className={`${outfitSans.variable} bg-black text-white antialiased scroll-smooth`}
-      >
+      <body className={`${outfitSans.variable} antialiased scroll-smooth`}>
         <NextIntlClientProvider>
           <main>{children}</main>
         </NextIntlClientProvider>
