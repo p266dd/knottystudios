@@ -3,8 +3,6 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
-import Navigation from "@/components/navigation";
-
 import { Outfit } from "next/font/google";
 import "../globals.css";
 
@@ -41,12 +39,11 @@ export default async function RootLocaleLayout({
   }
 
   return (
-    <html lang={locale} className="h-full">
+    <html lang={locale}>
       <body
-        className={`${outfitSans.variable} h-full bg-black text-white antialiased`}
+        className={`${outfitSans.variable} bg-black text-white antialiased scroll-smooth`}
       >
         <NextIntlClientProvider>
-          <Navigation />
           <main>{children}</main>
         </NextIntlClientProvider>
       </body>

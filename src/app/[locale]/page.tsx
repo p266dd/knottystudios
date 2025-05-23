@@ -1,7 +1,9 @@
-import { getTranslations } from 'next-intl/server';
+"use client";
+
+// import { getTranslations } from "next-intl/server";
 // import {useTranslations} from 'next-intl'; ** For client components.
- 
-export default async function HomePage() {
-  const t = await getTranslations('HomePage');
-  return <h1>{t('title')}</h1>;
+
+export default function HomePage() {
+  // const t = await getTranslations("HomePage");
+  return <div></div>;
 }
