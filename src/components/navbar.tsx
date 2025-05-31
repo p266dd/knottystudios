@@ -62,7 +62,7 @@ export default function Navbar() {
         window.scrollY > 50
           ? (navbarRef.current as HTMLElement).setAttribute(
               "style",
-              "background: 'transparent'; backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255, 255, 255, 0.15);"
+              "background-color: rgba(0,0,0,0.35); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255, 255, 255, 0.15);"
             )
           : (navbarRef.current as HTMLElement).setAttribute("style", "");
       }
@@ -168,7 +168,7 @@ export default function Navbar() {
             <SheetContent
               side="right"
               onOpenAutoFocus={(e) => e.preventDefault()}
-              className="bg-white/5 backdrop-blur-xl border-white/10 py-14 px-4"
+              className="bg-black/20 backdrop-blur-xl border-white/10 py-14 px-4"
             >
               <SheetHeader className="h-full">
                 <div className="hidden">
