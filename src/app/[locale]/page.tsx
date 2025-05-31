@@ -6,9 +6,5 @@ import { Button } from "@/components/ui/button";
 
 export default function HomePage() {
   // const t = await getTranslations("HomePage");
-  return (
-    <div>
-      <Button>Click me</Button>
-    </div>
-  );
+  return <div></div>;
 }

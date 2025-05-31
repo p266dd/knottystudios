@@ -1,9 +1,15 @@
 {
   "Navigation": {
     "services": "Services",
-    "clients": "Clients",
+    "projects": "Projects",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "mobile": {
+      "menuTitle": "Mobile Navigation Menu",
+      "menuDescription": "Navigate through our website.",
+      "subscribe": "Subscribe",
+      "subscribeDescription": "We'll inform you of our new products and offers."
+    }
   },
   "HomePage": {
     "title": "Knotty Studios",

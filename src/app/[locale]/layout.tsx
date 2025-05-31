@@ -6,6 +6,8 @@ import { routing } from "@/i18n/routing";
 import { Outfit } from "next/font/google";
 import "../globals.css";
 
+import Navbar from "@/components/navbar";
+
 const outfitSans = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
@@ -40,9 +42,12 @@ export default async function RootLocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${outfitSans.variable} antialiased scroll-smooth`}>
+      <body
+        className={`${outfitSans.variable} bg-black text-white antialiased scroll-smooth`}
+      >
         <NextIntlClientProvider>
-          <main>{children}</main>
+          <Navbar />
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>
